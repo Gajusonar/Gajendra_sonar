@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gajendra Sonar | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* * THEME VARIABLES * */
+        :root {
+            /* Dark Theme (Default) */
+            --color-bg: #121212;
+            --color-bg-card: #1e1e1e;
+            --color-bg-nav: rgba(30, 30, 30, 0.9);
+            --color-text: #e0e0e0;
+            --color-text-dim: #a0a0a0;
+            --color-accent: #00bcd4; /* Cyan/Teal Accent */
+            --color-shadow: rgba(0, 0, 0, 0.4);
+            --color-border: #333;
+        }
+
+        /* Light Theme (Applied to body.light-mode) */
+        body.light-mode {
+            --color-bg: #ffffff;
+            --color-bg-card: #f8f8f8;
+            --color-bg-nav: rgba(255, 255, 255, 0.95);
+            --color-text: #2c3e50;
+            --color-text-dim: #7f8c8d;
+            --color-accent: #3498db; /* Blue Accent */
+            --color-shadow: rgba(0, 0, 0, 0.1);
+            --color-border: #ecf0f1;
+        }
+
+        /* * GLOBAL STYLES * */
+        body {
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s; /* Smooth theme transition */
+        }
+
+        strong {
+            color: var(--color-accent); /* Highlight key words */
+        }
+
+        /* * NAVIGATION * */
+        nav {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--color-bg-nav);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--color-shadow);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text-dim);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0; /* Add padding for better touch targets */
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Navigation link hover underline effect */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--color-accent);
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 5px;
+        }
+        #theme-toggle:hover {
+            color: var(--color-accent);
+        }
+
+        /* * HEADER / HERO SECTION * */
+        header {
+            min-height: 100vh; /* Use min-height for flexibility */
+            padding-top: 80px; /* Account for fixed nav */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--color-bg-card);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .hero-content {
+            padding: 40px 20px;
+            max-width: 800px;
+        }
+
+        header h1 {
+            font-size: 5rem; 
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: -2px;
+            /* Gradient Text Effect */
+            background: linear-gradient(90deg, var(--color-text) 40%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            color: var(--color-accent);
+            font-family: 'Roboto Mono', monospace; 
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px; /* Control image size */
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--color-shadow);
+        }
+
+        /* * SECTIONS & HEADINGS * */
+        section {
+            padding: 120px 20px; 
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--color-text);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        /* Underline effect for H2 */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--color-accent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        /* Styles for Experience and Project Boxes */
+        .work-item, .project {
+            background: var(--color-bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px var(--color-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-left: 5px solid transparent; 
+            border: 1px solid var(--color-border); /* Subtle border for light mode contrast */
+        }
+        .work-item:hover, .project:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px var(--color-accent), 0 15px 30px rgba(0, 188, 212, 0.2); 
+            border-left: 5px solid var(--color-accent); 
+        }
+
+        .work-item h3, .project h3 {
+            color: var(--color-text);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .work-item .duration, .work-item .company {
+            color: var(--color-text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .work-item ul, .project ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .work-item ul li::before, .project ul li::before {
+            content: '•';
+            color: var(--color-accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* * SKILLS SECTION * */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list span {
+            display: inline-block;
+            padding: 8px 18px;
+            background: var(--color-border);
+            border-radius: 6px;
+            margin: 5px 0;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            border: 1px solid var(--color-border);
+            transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+        }
+        .skills-list span:hover {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            transform: translateY(-3px) scale(1.05); 
+            box-shadow: 0 5px 15px var(--color-accent);
+        }
+
+        /* * PROJECTS SECTION - Link Styling * */
+        .project a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border: 1px solid var(--color-accent);
+            padding: 8px 15px;
+            display: inline-block;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        .project a:hover {
+            background: var(--color-accent);
+            color: var(--color-bg-card);
+            box-shadow: 0 0 10px var(--color-accent);
+        }
+
+        /* * RESUME DOWNLOAD SECTION * */
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px var(--color-shadow);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .download-btn:hover {
+            background: #00e5ff; /* Lighter cyan/blue */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--color-accent);
+        }
+
+        /* * CONTACT & FOOTER * */
+        #contact p {
+            font-size: 1.1rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        #contact a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        #contact a:hover {
+            color: var(--color-text);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-bg-card);
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--color-text-dim);
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* **************************************** */
+        /* * R E S P O N S I V E N E S S ********* */
+        /* **************************************** */
+        @media (max-width: 768px) {
+            
+            header h1 {
+                font-size: 3rem; /* Smaller heading on mobile */
+                letter-spacing: -1px;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                /* Remove gap and stack links */
+                justify-content: space-around;
+                gap: 10px; 
+                padding: 15px 5px;
+                flex-wrap: wrap; /* Allow links to wrap if needed */
+            }
+
+            nav a {
+                font-size: 0.85rem; /* Smaller nav text */
+                padding: 0;
+            }
+            
+            #theme-toggle {
+                right: 10px; /* Move closer to edge */
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 80px 15px; /* Less vertical and horizontal padding */
+            }
+
+            h2 {
+                font-size: 2rem; /* Smaller section headings */
+                margin-bottom: 30px;
+            }
+            
+            .download-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            /* Ensure project/work items stack nicely */
+            .work-item, .project {
+                padding: 20px;
+            }
+
+            .skills-list {
+                justify-content: center; /* Center skills tags */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+    
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-sun"></i> 
+    </button>
+</nav>
+
+<header>
+    <div class="hero-content">
+        <h1>Gajendra Sonar</h1>
+        <p>I enjoy building tools that simplify complexity, from the developer's terminal to the user's screen.</p>
+    </div>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Hi, I’m <strong>Gajendra Sonar</strong> — a passionate software developer focused on building clean, reliable, and scalable solutions. 
+        I’m currently working in Riomed Technology co. Pvt. a healthcare software company. Here, I focus on creating healthcare-related software and system integration, especially with HL7, REST APIs, and robust backend systems.
+        <br><br>
+        I enjoy solving real-world problems through code and love exploring new tools, technologies, and architectures. Whether it’s creating microservices, 
+        developing frontend apps, integrating systems, or improving performance — I’m always excited to build something better than before.
+        <br><br>
+         What I Do:<br>
+        • Full-stack development (Java, Spring Boot, React)<br>
+        • Healthcare integrations (HL7, ADT, ORM, ORU, FHIR basics)<br>
+        • API design & development<br>
+        • SQL and database design<br>
+        • Debugging, problem-solving, code optimization<br><br>
+
+        What I’m Working On Now:<br>
+        • Improving skills in SpringBoot, microservices, cloud (AWS basics), and system integration<br>
+        • Learning advanced concepts like virtual threads, concurrency, and scalable design<br><br>
+
+        My Interests:<br>
+        • Web development<br>
+        • System integration<br>
+        • Backend engineering<br>
+        • Building real-use mini projects<br><br>
+
+        Why I Love Development:<br>
+        Because it allows me to create something meaningful, solve problems, and grow every day. 
+        Technology evolves fast — and I enjoy being part of that journey.
+    </p>
+</section>
+
+<section id="experience">
+    <h2>Work Experience</h2>
+
+    <div class="work-item">
+        <h3>Software Developer</h3>
+        <span class="company">Riomed Technology co. Pvt. Ltd.</span>
+        <span class="duration">2023 - Present (Full-time)</span>
+        <ul>
+            <li>Developed and maintained robust backend microservices using Java and Spring Boot for the Cellma Healthcare Management System.</li>
+            <li>Specialized in Healthcare Integration protocols, including HL7 (ADT, ORM, ORU), ensuring seamless data exchange between clinical systems.</li>
+            <li>Designed and implemented RESTful APIs for both internal application use and external third-party integration.</li>
+            <li>Managed and optimized database schemas in MySQL, focusing on query performance and data integrity.</li>
+            <li>Collaborated with cross-functional teams to debug, troubleshoot, and implement performance enhancements across the application lifecycle.</li>
+        </ul>
+    </div>
+    
+	<div class="work-item">
+        <h3>Previous Internship</h3>
+        <span class="company">GRIP at Spark Foundation</span>
+        <span class="duration">Aug 2022 - Jan 2021 (Internship)</span>
+        <ul>
+            <li>Assisted the senior development team in building UI components using React and JavaScript.</li>
+            <li>Wrote unit tests and integration tests to ensure code quality and stability.</li>
+            <li>Participated in code reviews and learned Agile development methodologies.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+		<span>Java</span>
+		<span>SpringBoot</span>
+		<span>Java MicroServices</span>
+		<span>AWS</span>
+		<span>JavaScript</span>
+        <span>React</span>
+        <span>MySQL</span>
+        <span>HTML</span>
+        <span>CSS</span>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>BuyIt Ecommerce Site</h3>
+		<ul>
+			<li>The project is described as “An Ecommerce site where user can buy, seller there product.” </li>
+			<li>A basic e-commerce site where buyers can browse/buy items, and sellers list their products.</li>
+			<li>So basically it’s a small e-commerce platform / web application — a “storefront + product listing + purchase” kind of system.</li>
+		</ul>
+        <a href="https://github.com/Gajusonar/BuyIt-ecommerce-project.git" target="_blank">View Project</a>
+    </div>
+	
+	<div class="project">
+        <h3>Cellma (Professional)</h3>
+		<ul>
+			<li>Cellma is a comprehensive healthcare management system used by hospitals, clinics, and community health services to manage patient records and daily operations.</li>
+			<li>It supports end-to-end workflows like registrations, appointments, referrals, assessments, letters, billing, and reporting.</li>
+			<li>Cellma improves data accuracy and communication between departments by keeping every patient detail in one central platform.</li>
+			<li>It is widely used in NHS Trusts and offers customizable modules to match each organization’s healthcare processes.</li>
+		</ul>
+    </div>
+
+</section>
+
+<section id="resume" style="text-align: center; padding-top: 60px; padding-bottom: 60px;">
+    <h2>Download My Resume</h2>
+    <p>Ready to see my full qualifications and history? Download my resume here.</p>
+    <a href="Gajendra_Sonar_Resume.pdf" download="Gajendra_Sonar_Resume" class="download-btn">
+        Download Resume (PDF)
+    </a>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:gajusonar05@gmail.com">gajusonar05@gmail.com</a></p>
+	<p>Mobile No: +918888123870</p>
+    <p>LinkedIn: <a href="www.linkedin.com/in/g99sonar" target="_blank">View Profile</a></p>
+    <p>GitHub: <a href="https://github.com/Gajusonar" target="_blank">View GitHub</a></p>
+</section>
+
+<footer>
+    © 2025 Gajendra Sonar. All rights reserved. Built with passion and code.
+</footer>
+
+<script>
+    // Smooth scroll for all navigation links
+    document.querySelectorAll('nav a').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const targetId = a.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    // Function to set the theme
+    function setTheme(isLight) {
+        if (isLight) {
+            body.classList.add('light-mode');
+            icon.className = 'fas fa-moon'; // Show Moon icon for switching to Dark Mode
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.classList.remove('light-mode');
+            icon.className = 'fas fa-sun'; // Show Sun icon for switching to Light Mode
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Initialize theme based on user's preference or system setting
+    const currentTheme = localStorage.getItem('theme');
+    
+    // Check local storage first, then system preference
+    if (currentTheme === 'light') {
+        setTheme(true);
+    } else if (currentTheme === 'dark' || !currentTheme) {
+        // Default to dark if no preference is set, aligning with the initial CSS
+        setTheme(false);
+    }
+    
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        const isLight = body.classList.contains('light-mode');
+        setTheme(!isLight);
+    });
+
+</script>
+
+</body>
+</html>
