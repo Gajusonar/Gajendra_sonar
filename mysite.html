@@ -1,178 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gajendra Sonar | Software Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* * THEME VARIABLES * */
-        :root {
-            /* Dark Theme (Default) */
-            --color-bg: #121212;
-            --color-bg-card: #1e1e1e;
-            --color-bg-nav: rgba(30, 30, 30, 0.9);
-            --color-text: #e0e0e0;
-            --color-text-dim: #a0a0a0;
-            --color-accent: #00bcd4; /* Cyan/Teal Accent */
-            --color-shadow: rgba(0, 0, 0, 0.4);
-            --color-border: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gajendra Sonar | Software Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* THEME VARIABLES - Enhanced gradients and colors */
+    :root {
+      --color-bg: #0a0a0a;
+      --color-bg-card: #1a1a2e;
+      --color-bg-nav: rgba(26, 26, 46, 0.95);
+      --color-text: #e0e7ff;
+      --color-text-dim: #94a3b8;
+      --color-accent: #00d4ff;
+      --color-accent-glow: #00b4d8;
+      --color-shadow: rgba(0, 0, 0, 0.6);
+      --color-border: rgba(59, 130, 246, 0.3);
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-accent: linear-gradient(45deg, #00d4ff, #0099cc);
+    }
 
-        /* Light Theme (Applied to body.light-mode) */
-        body.light-mode {
-            --color-bg: #ffffff;
-            --color-bg-card: #f8f8f8;
-            --color-bg-nav: rgba(255, 255, 255, 0.95);
-            --color-text: #2c3e50;
-            --color-text-dim: #7f8c8d;
-            --color-accent: #3498db; /* Blue Accent */
-            --color-shadow: rgba(0, 0, 0, 0.1);
-            --color-border: #ecf0f1;
-        }
+    body.light-mode {
+      --color-bg: #f8fafc;
+      --color-bg-card: #ffffff;
+      --color-bg-nav: rgba(255, 255, 255, 0.98);
+      --color-text: #1e293b;
+      --color-text-dim: #64748b;
+      --color-accent: #3b82f6;
+      --color-accent-glow: #2563eb;
+      --color-shadow: rgba(0, 0, 0, 0.15);
+      --color-border: rgba(59, 130, 246, 0.2);
+      --gradient-primary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    }
 
-        /* * GLOBAL STYLES * */
-        body {
-            margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
-            background: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            transition: background-color 0.4s, color 0.4s; /* Smooth theme transition */
-        }
+    /* GLOBAL STYLE RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        strong {
-            color: var(--color-accent); /* Highlight key words */
-        }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
 
-        /* * NAVIGATION * */
-        nav {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            padding: 15px 20px;
-            background: var(--color-bg-nav);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            z-index: 1000;
-            box-shadow: 0 2px 10px var(--color-shadow);
-        }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-bottom: 80px;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: var(--color-text-dim);
-            font-weight: 600;
-            transition: color 0.3s;
-            position: relative;
-            padding: 5px 0; /* Add padding for better touch targets */
-        }
+    strong {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-        nav a:hover {
-            color: var(--color-accent);
-        }
-        
-        /* Navigation link hover underline effect */
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            margin-top: 5px;
-            right: 0;
-            background: var(--color-accent);
-            transition: width 0.3s ease;
-        }
-        nav a:hover::after {
-            width: 100%;
-            left: 0;
-            background: var(--color-accent);
-        }
+    /* PARTICLE BACKGROUND EFFECT */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, var(--color-accent), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--color-accent-glow), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--color-accent), transparent),
+        radial-gradient(1px 1px at 130px 80px, var(--color-accent-glow), transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: float 20s infinite linear;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-        /* Theme Toggle Button */
-        #theme-toggle {
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--color-text);
-            font-size: 1.4rem;
-            cursor: pointer;
-            transition: color 0.3s;
-            padding: 5px;
-        }
-        #theme-toggle:hover {
-            color: var(--color-accent);
-        }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-20px) rotate(360deg);
+      }
+    }
 
-        /* * HEADER / HERO SECTION * */
-        header {
-            min-height: 100vh; /* Use min-height for flexibility */
-            padding-top: 80px; /* Account for fixed nav */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: var(--color-bg-card);
-            border-bottom: 2px solid var(--color-accent);
-        }
+    /* NAVBAR - GLASSMORPHISM AND 3D EFFECTS */
+    nav {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background: var(--color-bg-nav);
+      backdrop-filter: blur(2px) saturate(18%);
+      -webkit-backdrop-filter: blur(2px) saturate(18%);
+      border: 1px solid var(--color-border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      z-index: 1000;
+      box-shadow:
+        0 8px 32px var(--color-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 70vw;
+    }
 
-        .hero-content {
-            padding: 40px 20px;
-            max-width: 800px;
-        }
+    nav::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--gradient-accent);
+      opacity: 0;
+      border-radius: 50%;
+      transition: opacity 0.6s ease;
+      z-index: -1;
+    }
 
-        header h1 {
-            font-size: 5rem; 
-            margin: 0 0 10px 0;
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-text-dim);
+      font-weight: 600;
+      position: relative;
+      padding: 12px;
+      font-size: 1.1rem;
+      line-height: 1;
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      flex-shrink: 0;
+    }
+
+    nav a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%) translateZ(20px);
+      padding: 8px 16px;
+      white-space: nowrap;
+      background: var(--gradient-accent);
+      color: #fff;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: var(--gradient-accent);
+      transform: translateZ(20px) scale(1.2) rotateX(10deg);
+      box-shadow:
+        0 20px 40px rgba(0, 212, 255, 0.4),
+        0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    nav a:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateZ(20px) translateY(-10px);
+    }
+
+    nav .active-icon {
+      background: var(--gradient-accent);
+      color: #fff;
+      box-shadow:
+        0 0 25px rgba(0, 212, 255, 0.6),
+        inset 0 2px 10px rgba(255, 255, 255, 0.2);
+      transform: translateZ(15px);
+    }
+
+    .separator {
+      margin: 0 8px;
+      color: var(--color-text-dim);
+      font-weight: bold;
+      font-size: 1.2rem;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* THEME TOGGLE BUTTON */
+    #theme-toggle {
+      position: relative;
+      background: transparent;
+      border: none;
+      color: var(--color-text-dim);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      flex-shrink: 0;
+    }
+	        header h1 {
+            font-size: 5rem;
+            margin: 0 0 8px 0; /* Reduced from 10px */
             font-weight: 700;
             letter-spacing: -2px;
             /* Gradient Text Effect */
             background: linear-gradient(90deg, var(--color-text) 40%, var(--color-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: left; /* Alignment for desktop view */
         }
 
         header p {
             font-size: 1.5rem;
             opacity: 0.9;
             color: var(--color-accent);
-            font-family: 'Roboto Mono', monospace; 
-            margin-bottom: 40px;
+            font-family: 'Roboto Mono', monospace;
+            margin-bottom: 30px; /* Reduced from 40px */
+            text-align: left; /* Alignment for desktop view */
         }
 
-        .hero-image {
-            width: 100%;
-            max-width: 400px; /* Control image size */
-            height: auto;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px var(--color-shadow);
-        }
-
-        /* * SECTIONS & HEADINGS * */
+        /* SECTIONS - REDUCED SPACING */
         section {
-            padding: 120px 20px; 
+            padding: 60px 20px; /* Reduced from 120px */
             max-width: 1000px;
-            margin: auto;
+            margin: 0 auto; /* Changed from auto to center properly */
         }
 
-        h2 {
-            margin-bottom: 50px;
+        section h2 {
+            margin-bottom: 30px; /* Reduced from 50px */
             font-size: 2.5rem;
             color: var(--color-text);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 10px; /* Underline effect for H2 */
         }
-        
-        /* Underline effect for H2 */
-        h2::after {
+
+        section h2::after {
             content: '';
             display: block;
             width: 60px;
@@ -182,23 +261,32 @@
             bottom: 0;
             left: 0;
         }
-        
-        /* Styles for Experience and Project Boxes */
+		        footer {
+            text-align: center;
+            padding: 20px; /* Reduced from 30px */
+            background: var(--color-bg-card);
+            margin-top: 30px; /* Reduced from 40px */
+            font-size: 0.9rem;
+            color: var(--color-text-dim);
+            border-top: 1px solid var(--color-border);
+        }
+	/* Styles for Experience and Project Boxes */
         .work-item, .project {
             background: var(--color-bg-card);
-            padding: 30px;
+            padding: 25px; /* Reduced from 30px */
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced from 30px */
             box-shadow: 0 4px 15px var(--color-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            border-left: 5px solid transparent; 
-            border: 1px solid var(--color-border); /* Subtle border for light mode contrast */
+            border-left: 5px solid transparent;
+            border: 1px solid var(--color-border);
         }
+
         .work-item:hover, .project:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 30px var(--color-accent), 0 15px 30px rgba(0, 188, 212, 0.2); 
-            border-left: 5px solid var(--color-accent); 
+            transform: translateY(-6px); /* Reduced lift */
+            box-shadow: 0 12px 25px var(--color-accent), 0 12px 25px rgba(0, 188, 212, 0.2);
+            border-left: 5px solid var(--color-accent);
         }
 
         .work-item h3, .project h3 {
@@ -206,357 +294,565 @@
             margin-top: 0;
             font-size: 1.5rem;
         }
+
         .work-item .duration, .work-item .company {
             color: var(--color-text-dim);
             font-size: 0.95rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Reduced */
             display: block;
         }
+
         .work-item ul, .project ul {
             list-style: none;
             padding-left: 0;
         }
+
         .work-item ul li::before, .project ul li::before {
-            content: '•';
+            content: '▸';
             color: var(--color-accent);
             font-weight: bold;
             display: inline-block;
             width: 1em;
             margin-left: -1em;
         }
-
-        /* * SKILLS SECTION * */
+		
+		/* SKILLS SECTION - WITH ICONS */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px; /* Reduced from 10px */
         }
+
         .skills-list span {
             display: inline-block;
-            padding: 8px 18px;
+            padding: 8px 16px; /* Slightly reduced */
             background: var(--color-border);
             border-radius: 6px;
-            margin: 5px 0;
+            margin: 4px 0; /* Reduced from 5px */
             font-family: 'Roboto Mono', monospace;
-            color: var(--color-accent);
+            color: var(--color-text);
             font-size: 0.9rem;
             border: 1px solid var(--color-border);
             transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
         }
+
+        .skills-list span i {
+            margin-right: 6px; /* Reduced from 8px */
+            color: var(--color-accent);
+        }
+
         .skills-list span:hover {
             background: var(--color-accent);
             color: var(--color-bg);
-            transform: translateY(-3px) scale(1.05); 
-            box-shadow: 0 5px 15px var(--color-accent);
+            transform: translateY(-2px) scale(1.03); /* Reduced effect */
+            box-shadow: 0 4px 12px var(--color-accent);
         }
 
-        /* * PROJECTS SECTION - Link Styling * */
-        .project a {
-            color: var(--color-accent);
-            text-decoration: none;
-            border: 1px solid var(--color-accent);
-            padding: 8px 15px;
-            display: inline-block;
-            border-radius: 5px;
-            margin-top: 10px;
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-        .project a:hover {
-            background: var(--color-accent);
-            color: var(--color-bg-card);
-            box-shadow: 0 0 10px var(--color-accent);
-        }
-
-        /* * RESUME DOWNLOAD SECTION * */
-        .download-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: var(--color-accent);
+        .skills-list span:hover i {
             color: var(--color-bg);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px var(--color-shadow);
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .download-btn:hover {
-            background: #00e5ff; /* Lighter cyan/blue */
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--color-accent);
         }
 
-        /* * CONTACT & FOOTER * */
-        #contact p {
-            font-size: 1.1rem;
-            font-family: 'Roboto Mono', monospace;
-        }
+    #theme-toggle:hover {
+      color: #fff;
+      background: var(--gradient-accent);
+      transform: translateZ(20px) scale(1.2) rotateY(180deg);
+      box-shadow:
+        0 20px 40px rgba(0, 212, 255, 0.4),
+        0 0 20px rgba(0, 212, 255, 0.3);
+    }
 
-        #contact a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        #contact a:hover {
-            color: var(--color-text);
-        }
+    /* MOBILE MENU OVERLAY */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-bg-nav);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: var(--color-bg-card);
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: var(--color-text-dim);
-            border-top: 1px solid var(--color-border);
-        }
+    .mobile-menu.active {
+      left: 0;
+    }
 
-        /* **************************************** */
-        /* * R E S P O N S I V E N E S S ********* */
-        /* **************************************** */
-        @media (max-width: 768px) {
-            
-            header h1 {
-                font-size: 3rem; /* Smaller heading on mobile */
-                letter-spacing: -1px;
-            }
+    .mobile-menu a {
+      font-size: 2rem;
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
 
-            header p {
-                font-size: 1.2rem;
-            }
+    .mobile-menu a:hover {
+      background: var(--gradient-accent);
+      color: #fff;
+      transform: scale(1.1);
+    }
 
-            nav {
-                /* Remove gap and stack links */
-                justify-content: space-around;
-                gap: 10px; 
-                padding: 15px 5px;
-                flex-wrap: wrap; /* Allow links to wrap if needed */
-            }
+    /* HAMBURGER BUTTON FOR MOBILE */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
 
-            nav a {
-                font-size: 0.85rem; /* Smaller nav text */
-                padding: 0;
-            }
-            
-            #theme-toggle {
-                right: 10px; /* Move closer to edge */
-                font-size: 1.2rem;
-            }
+    .hamburger span {
+      width: 100%;
+      height: 3px;
+      background: var(--color-text-dim);
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: 1px;
+    }
 
-            section {
-                padding: 80px 15px; /* Less vertical and horizontal padding */
-            }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
 
-            h2 {
-                font-size: 2rem; /* Smaller section headings */
-                margin-bottom: 30px;
-            }
-            
-            .download-btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            /* Ensure project/work items stack nicely */
-            .work-item, .project {
-                padding: 20px;
-            }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(20px);
+    }
 
-            .skills-list {
-                justify-content: center; /* Center skills tags */
-            }
-        }
-    </style>
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* HEADER AND HERO IMAGE STYLES (same as before) */
+    header {
+      min-height: 100vh;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: linear-gradient(135deg, var(--color-bg-card) 0%, transparent 100%);
+      border-bottom: 3px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .hero-content {
+      padding: 40px 20px;
+      max-width: 600px;
+      transform-style: preserve-3d;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+            margin: 0 0 8px 0; /* Reduced from 10px */
+            font-weight: 700;
+            letter-spacing: -2px;
+            /* Gradient Text Effect */
+            background: linear-gradient(90deg, var(--color-text) 40%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: left; /* Alignment for desktop view */
+    }
+
+    @keyframes glow {
+      from {
+        filter: drop-shadow(0 0 20px var(--color-accent-glow));
+      }
+      to {
+        filter: drop-shadow(0 0 30px var(--color-accent));
+      }
+    }
+
+    .hero-content p {
+      font-size: 1.6rem;
+      opacity: 0.9;
+      color: var(--color-text-dim);
+      font-family: 'Roboto Mono', monospace;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      max-width: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      perspective: 1200px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 10px rgba(0, 212, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      animation: float3d 6s ease-in-out infinite;
+    }
+
+    @keyframes float3d {
+      0%,
+      100% {
+        transform: translateY(0) rotateX(0deg) rotateY(0deg) translateZ(0);
+      }
+      33% {
+        transform: translateY(-20px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+      }
+      66% {
+        transform: translateY(-10px) rotateX(-3deg) rotateY(3deg) translateZ(10px);
+      }
+    }
+
+    .hero-image-wrapper:hover .hero-image {
+      transform: translateZ(50px) scale(1.05) rotateX(10deg) rotateY(10deg);
+      box-shadow:
+        0 40px 80px rgba(0, 212, 255, 0.5),
+        0 0 50px rgba(0, 212, 255, 0.4);
+    }
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 120px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        gap: 8px;
+        padding: 8px 16px;
+        bottom: 10px;
+        justify-content: center;
+      }
+
+      nav a:not(.active-icon),
+      .separator {
+        display: none;
+      }
+
+      nav .active-icon {
+        display: block;
+        margin: 0;
+      }
+
+      #theme-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        max-width: 95vw;
+        padding: 6px 12px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      nav {
+        gap: 16px;
+        padding: 14px 28px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-section="about"><i class="fas fa-user"></i> About</a>
+    <a href="#experience" data-section="experience"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="#skills" data-section="skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="#projects" data-section="projects"><i class="fas fa-laptop-code"></i> Projects</a>
+    <a href="#resume" data-section="resume"><i class="fas fa-file-alt"></i> Resume</a>
+    <a href="#contact" data-section="contact"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-    
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-        <i class="fas fa-sun"></i> 
+  <nav>
+    <!-- HAMBURGER BUTTON FOR MOBILE -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu" aria-haspopup="true">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-</nav>
 
-<header>
-    <div class="hero-content">
-        <h1>Gajendra Sonar</h1>
-        <p>I enjoy building tools that simplify complexity, from the developer's terminal to the user's screen.</p>
-    </div>
-</header>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        Hi, I’m <strong>Gajendra Sonar</strong> — a passionate software developer focused on building clean, reliable, and scalable solutions. 
-        I’m currently working in Riomed Technology co. Pvt. a healthcare software company. Here, I focus on creating healthcare-related software and system integration, especially with HL7, REST APIs, and robust backend systems.
-        <br><br>
-        I enjoy solving real-world problems through code and love exploring new tools, technologies, and architectures. Whether it’s creating microservices, 
-        developing frontend apps, integrating systems, or improving performance — I’m always excited to build something better than before.
-        <br><br>
-         What I Do:<br>
-        • Full-stack development (Java, Spring Boot, React)<br>
-        • Healthcare integrations (HL7, ADT, ORM, ORU, FHIR basics)<br>
-        • API design & development<br>
-        • SQL and database design<br>
-        • Debugging, problem-solving, code optimization<br><br>
-
-        What I’m Working On Now:<br>
-        • Improving skills in SpringBoot, microservices, cloud (AWS basics), and system integration<br>
-        • Learning advanced concepts like virtual threads, concurrency, and scalable design<br><br>
-
-        My Interests:<br>
-        • Web development<br>
-        • System integration<br>
-        • Backend engineering<br>
-        • Building real-use mini projects<br><br>
-
-        Why I Love Development:<br>
-        Because it allows me to create something meaningful, solve problems, and grow every day. 
-        Technology evolves fast — and I enjoy being part of that journey.
-    </p>
-</section>
-
-<section id="experience">
-    <h2>Work Experience</h2>
-
-    <div class="work-item">
-        <h3>Software Developer</h3>
-        <span class="company">Riomed Technology co. Pvt. Ltd.</span>
-        <span class="duration">2023 - Present (Full-time)</span>
-        <ul>
-            <li>Developed and maintained robust backend microservices using Java and Spring Boot for the Cellma Healthcare Management System.</li>
-            <li>Specialized in Healthcare Integration protocols, including HL7 (ADT, ORM, ORU), ensuring seamless data exchange between clinical systems.</li>
-            <li>Designed and implemented RESTful APIs for both internal application use and external third-party integration.</li>
-            <li>Managed and optimized database schemas in MySQL, focusing on query performance and data integrity.</li>
-            <li>Collaborated with cross-functional teams to debug, troubleshoot, and implement performance enhancements across the application lifecycle.</li>
-        </ul>
-    </div>
-    
-	<div class="work-item">
-        <h3>Previous Internship</h3>
-        <span class="company">GRIP at Spark Foundation</span>
-        <span class="duration">Aug 2022 - Jan 2021 (Internship)</span>
-        <ul>
-            <li>Assisted the senior development team in building UI components using React and JavaScript.</li>
-            <li>Wrote unit tests and integration tests to ensure code quality and stability.</li>
-            <li>Participated in code reviews and learned Agile development methodologies.</li>
-        </ul>
-    </div>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
-		<span>Java</span>
-		<span>SpringBoot</span>
-		<span>Java MicroServices</span>
-		<span>AWS</span>
-		<span>JavaScript</span>
-        <span>React</span>
-        <span>MySQL</span>
-        <span>HTML</span>
-        <span>CSS</span>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3>BuyIt Ecommerce Site</h3>
-		<ul>
-			<li>The project is described as “An Ecommerce site where user can buy, seller there product.” </li>
-			<li>A basic e-commerce site where buyers can browse/buy items, and sellers list their products.</li>
-			<li>So basically it’s a small e-commerce platform / web application — a “storefront + product listing + purchase” kind of system.</li>
-		</ul>
-        <a href="https://github.com/Gajusonar/BuyIt-ecommerce-project.git" target="_blank">View Project</a>
-    </div>
-	
-	<div class="project">
-        <h3>Cellma (Professional)</h3>
-		<ul>
-			<li>Cellma is a comprehensive healthcare management system used by hospitals, clinics, and community health services to manage patient records and daily operations.</li>
-			<li>It supports end-to-end workflows like registrations, appointments, referrals, assessments, letters, billing, and reporting.</li>
-			<li>Cellma improves data accuracy and communication between departments by keeping every patient detail in one central platform.</li>
-			<li>It is widely used in NHS Trusts and offers customizable modules to match each organization’s healthcare processes.</li>
-		</ul>
-    </div>
-
-</section>
-
-<section id="resume" style="text-align: center; padding-top: 60px; padding-bottom: 60px;">
-    <h2>Download My Resume</h2>
-    <p>Ready to see my full qualifications and history? Download my resume here.</p>
-    <a href="Gajendra_Sonar_Resume.pdf" download="Gajendra_Sonar_Resume" class="download-btn">
-        Download Resume (PDF)
+    <!-- DESKTOP NAV LINKS -->
+    <a href="#home" aria-label="Home" class="active-icon" data-tooltip="Home">
+      <i class="fas fa-home"></i>
     </a>
-</section>
+    <span class="separator">|</span>
+    <a href="#about" aria-label="About" data-tooltip="About">
+      <i class="fas fa-user"></i>
+    </a>
+    <a href="#experience" aria-label="Experience" data-tooltip="Experience">
+      <i class="fas fa-briefcase"></i>
+    </a>
+    <a href="#skills" aria-label="Skills" data-tooltip="Skills">
+      <i class="fas fa-code"></i>
+    </a>
+    <a href="#projects" aria-label="Projects" data-tooltip="Projects">
+      <i class="fas fa-laptop-code"></i>
+    </a>
+    <span class="separator">|</span>
+    <a href="#resume" aria-label="Resume" data-tooltip="Resume">
+      <i class="fas fa-file-alt"></i>
+    </a>
+    <a href="#contact" aria-label="Contact" data-tooltip="Contact">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" data-tooltip="Toggle Theme">
+      <i class="fas fa-sun"></i>
+    </button>
+  </nav>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:gajusonar05@gmail.com">gajusonar05@gmail.com</a></p>
-	<p>Mobile No: +918888123870</p>
-    <p>LinkedIn: <a href="www.linkedin.com/in/g99sonar" target="_blank">View Profile</a></p>
-    <p>GitHub: <a href="https://github.com/Gajusonar" target="_blank">View GitHub</a></p>
-</section>
+  <!-- HEADER AND CONTENT -->
+  <header id="home">
+    <div class="hero-content">
+      <h1>Hey! I'm Gajendra Sonar</h1>
+      <p>I enjoy building tools that simplify complexity, from the developer's terminal to the user's screen.</p>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="C:\Users\Gajendra Sonar\Downloads\Media.jpg" alt="Gajendra Sonar Profile Picture" class="hero-image" />
+    </div>
+  </header>
 
-<footer>
-    © 2025 Gajendra Sonar. All rights reserved. Built with passion and code.
-</footer>
+    <!-- Rest of the sections remain exactly the same as previous version -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm <strong>Gajendra Sonar</strong>, a passionate software developer focused on building clean, reliable, and scalable solutions. I currently work at <a href="https://www.riomed.com" target="_blank">Riomed Technology co. Pvt.</a>, where I specialize in healthcare system integration using Java, Spring Boot, HL7, and REST APIs for robust backend systems.<br><br>I am a full-stack enthusiast who enjoys problem-solving, code optimization, and continuously learning advanced concepts like microservices and cloud technologies (AWS basics).</p>
+    </section>
 
-<script>
-    // Smooth scroll for all navigation links
-    document.querySelectorAll('nav a').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            const targetId = a.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="work-item">
+            <h3>Software Developer</h3>
+            <span class="company">
+                <a href="https://www.riomed.com" target="_blank">Riomed Technology co. Pvt. Ltd.</a>
+            </span>
+            <span class="duration">2023 - Present (Full-time)</span>
+            <ul>
+                <li>Developed and maintained robust backend microservices using Java and Spring Boot for the Cellma Healthcare Management System.</li>
+                <li>Specialized in Healthcare Integration protocols, including HL7 ADT, ORM, ORU, ensuring seamless data exchange between clinical systems.</li>
+                <li>Designed and implemented RESTful APIs for both internal application use and external third-party integration.</li>
+                <li>Managed and optimized database schemas in MySQL, focusing on query performance and data integrity.</li>
+                <li>Collaborated with cross-functional teams to debug, troubleshoot, and implement performance enhancements across the application lifecycle.</li>
+            </ul>
+        </div>
+		<div class="work-item">
+            <h3>Previous Internship</h3>
+            <span class="company">GRIP at Spark Foundation</span>
+            <span class="duration">Aug 2022 - Jan 2023 (Internship)</span>
+            <ul>
+                <li>Assisted the senior development team in building UI components using React and JavaScript.</li>
+                <li>Wrote unit tests and integration tests to ensure code quality and stability.</li>
+                <li>Participated in code reviews and learned Agile development methodologies.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <span><i class="fab fa-java"></i>Java</span>
+            <span><i class="fas fa-leaf"></i>SpringBoot</span>
+            <span><i class="fas fa-cubes"></i>Java MicroServices</span>
+            <span><i class="fab fa-aws"></i>AWS</span>
+            <span><i class="fab fa-js-square"></i>JavaScript</span>
+            <span><i class="fab fa-react"></i>React</span>
+            <span><i class="fas fa-database"></i>MySQL</span>
+            <span><i class="fab fa-html5"></i>HTML</span>
+            <span><i class="fab fa-css3-alt"></i>CSS</span>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <h3>Check out my latest work</h3>
+        <p>I've worked on a variety of projects, from simple websites to complex web applications.<br>Here are a few of my favorites.<br><br></p>
+
+        <div class="project">
+            <h3>BuyIt Ecommerce Site</h3>
+            <ul>
+                <li>The project is described as "An Ecommerce site where user can buy, seller there product."</li>
+                <li>A basic e-commerce site where buyers can browse/buy items, and sellers list their products.</li>
+                <li>So basically its a small e-commerce platform web application - a storefront, product listing, purchase kind of system.</li>
+                <li class="skills-list">
+                    <span><i class="fab fa-java"></i>Java</span>
+                    <span><i class="fab fa-js-square"></i>JavaScript</span>
+                    <span><i class="fab fa-react"></i>Angular</span>
+                    <span><i class="fab fa-node-js"></i>NodeJs</span>
+                    <span><i class="fas fa-database"></i>MySQL</span>
+                    <span><i class="fab fa-html5"></i>HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i>CSS3</span>
+                </li>
+            </ul>
+            <a href="https://github.com/Gajusonar/BuyIt-ecommerce-project.git" target="_blank">View Project</a>
+        </div>
+
+        <div class="project">
+            <h3>Cellma Professional</h3>
+            <ul>
+                <li>Cellma is a comprehensive healthcare management system used by hospitals, clinics, and community health services to manage patient records and daily operations.</li>
+                <li>It supports end-to-end workflows like registrations, appointments, referrals, assessments, letters, billing, and reporting.</li>
+                <li>Cellma improves data accuracy and communication between departments by keeping every patient detail in one central platform.</li>
+                <li>It is widely used in NHS Trusts and offers customizable modules to match each organization's healthcare processes.</li>
+                <li class="skills-list">
+                    <span><i class="fab fa-java"></i>Java</span>
+                    <span><i class="fas fa-leaf"></i>SpringBoot</span>
+                    <span><i class="fab fa-js-square"></i>JavaScript</span>
+                    <span><i class="fab fa-react"></i>React</span>
+                    <span><i class="fas fa-database"></i>MySQL</span>
+                    <span><i class="fab fa-html5"></i>HTML</span>
+                    <span><i class="fab fa-css3-alt"></i>CSS</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resume" style="padding-top: 50px; padding-bottom: 50px;">
+        <h2>Download My Resume</h2>
+        <p>Ready to see my full qualifications and history? Download my resume here.</p>
+        <a href="https://drive.google.com/file/d/1p5CfDmzvTD_E-yMEa2jh7OLkYXPRODi5/view?usp=sharing" download="GajendraSonarResume" class="download-btn">Download Resume PDF</a>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Want to chat? Just shoot me a dm with a direct question on <a href="tel:+918888123870">Mobile</a> or <a href="mailto:gajusonar05@gmail.com">mail</a> me and<br>I'll respond whenever I can.<br>I will ignore all soliciting.</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/g99sonar" target="_blank">View Profile</a></p>
+        <p>GitHub: <a href="https://github.com/Gajusonar" target="_blank">View GitHub</a></p>
+    </section>
+
+    <footer>
+        © 2025 Gajendra Sonar. All rights reserved. Built with passion and code.
+    </footer>
+
+    <script>
+        // MOBILE MENU TOGGLE
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
-    });
 
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
+        // CLOSE MOBILE MENU WHEN CLICKING LINK
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
 
-    // Function to set the theme
-    function setTheme(isLight) {
-        if (isLight) {
-            body.classList.add('light-mode');
-            icon.className = 'fas fa-moon'; // Show Moon icon for switching to Dark Mode
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.remove('light-mode');
-            icon.className = 'fas fa-sun'; // Show Sun icon for switching to Light Mode
-            localStorage.setItem('theme', 'dark');
+        // SMOOTH SCROLL FOR ALL LINKS
+        document.querySelectorAll('nav a, .mobile-menu a').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = a.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active nav state
+                    document.querySelectorAll('nav a').forEach(link => link.classList.remove('active-icon'));
+                    const desktopLink = document.querySelector(`nav a[href="${targetId}"]`);
+                    if (desktopLink) desktopLink.classList.add('active-icon');
+                }
+            });
+        });
+
+        // ACTIVE LINK STATE ON SCROLL
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('nav a');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.getAttribute('id');
+                    navLinks.forEach(link => link.classList.remove('active-icon'));
+                    const targetLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                    if (targetLink) targetLink.classList.add('active-icon');
+                }
+            });
+        }, { root: null, threshold: 0.5 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // THEME TOGGLE
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+
+        function setTheme(isLight) {
+            if (isLight) {
+                body.classList.add('light-mode');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
         }
-    }
 
-    // Initialize theme based on user's preference or system setting
-    const currentTheme = localStorage.getItem('theme');
-    
-    // Check local storage first, then system preference
-    if (currentTheme === 'light') {
-        setTheme(true);
-    } else if (currentTheme === 'dark' || !currentTheme) {
-        // Default to dark if no preference is set, aligning with the initial CSS
-        setTheme(false);
-    }
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        const isLight = body.classList.contains('light-mode');
-        setTheme(!isLight);
-    });
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') setTheme(true);
+        else setTheme(false);
 
-</script>
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.contains('light-mode');
+            setTheme(!isLight);
+        });
 
+        // CLOSE MOBILE MENU ON RESIZE TO DESKTOP
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
